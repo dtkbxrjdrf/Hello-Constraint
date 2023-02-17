@@ -1,9 +1,9 @@
 package it_school.sumdu.edu.hellotoast;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int mCount = 0;
     private TextView mShowCount;
+    public static final String EXTRA_MESSAGE = "com.example.android.HelloToast.extra.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
      *             the passed in view is not used.
      */
     public void showToast(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_message,
-                Toast.LENGTH_SHORT);
-        toast.show();
+        Intent intent = new Intent(this,SecondActivity.class);
+        String message = mShowCount.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 
     /*
