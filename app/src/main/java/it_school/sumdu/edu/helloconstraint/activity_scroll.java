@@ -1,14 +1,14 @@
-package it_school.sumdu.edu.hellotoast;
+package it_school.sumdu.edu.helloconstraint;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class implicit_activity extends AppCompatActivity {
+public class activity_scroll extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_implicit);
+        setContentView(R.layout.activity_scroll);
     }
 }

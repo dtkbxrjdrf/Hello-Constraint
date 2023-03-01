@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mShowCount = (TextView) findViewById(R.id.show_count);
+        if(savedInstanceState != null) {
+            mCount = savedInstanceState.getInt("count_key", 0);
+            mShowCount.setText(String.valueOf(mCount));
+        }
     }
 
     /*
@@ -34,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openImplicitActivity(View view){
+        Intent intent = new Intent(this,implicit_activity.class);
+        startActivity(intent);
+    }
+
     /*
      * Increments the number in the TextView when the COUNT button is clicked.
      *
@@ -45,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
         mCount++;
         if (mShowCount != null)
             mShowCount.setText(Integer.toString(mCount));
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("count_key",mCount);
     }
 }
